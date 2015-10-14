@@ -19,18 +19,19 @@ public class Burger {
         this.optTomato = optTomato;
         this.optCarrot = optCarrot;
         this.optPickles = optPickles;
+        this.price = 9;
 
         if(optLettuce){
-            this.price += 5;
+            this.addPrice(5);
         }
         if(optTomato){
-            this.price += 5;
+            this.addPrice(5);
         }
         if(optPickles){
-            this.price += 5;
+            this.addPrice(5);
         }
         if(optCarrot){
-            this.price += 5;
+            this.addPrice(5);
         }
     }
 
@@ -38,8 +39,24 @@ public class Burger {
         this.price += price;
     }
 
-    public double currentPrice() {
-        return this.price;
+    public void currentPrice() {
+        System.out.println(getIngredients());
+        System.out.println("Total price: $" + getPrice());
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getIngredients() {
+        String ingredients;
+        ingredients = "Bread: $4" + breadRoll + "\n" +
+                        "Meat $5: " + meat + "\n" +
+                        "Lettuce $5: " + optLettuce + "\n" +
+                        "Tomato $5: " + optTomato + "\n" +
+                        "Carrot $5: " + optCarrot + "\n" +
+                        "Pickles $5: " + optPickles + "\n";
+        return ingredients;
     }
 
 }

@@ -21,4 +21,10 @@ public class HealthyBurger extends Burger {
         }
     }
 
+    public String getIngredients() {
+        return super.getIngredients() +
+                "Crunchy Lettuce $7: " + optCrunchyLettuce + "\n" +
+                "Light Cheese $7: " + optLightCheese;
+    }
+
 }

@@ -25,7 +25,7 @@ public class MobilePhone {
         int pos = findContactPosition(name);
 
         if(pos != -1) {
-            phoneNumber = directory.get(pos).getPhone();
+            phoneNumber = "Name: " + directory.get(pos).getName() + " Phone: " + directory.get(pos).getPhone();
         }
 
         System.out.println(phoneNumber);

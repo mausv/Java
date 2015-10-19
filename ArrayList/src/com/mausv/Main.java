@@ -6,13 +6,9 @@ public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        MobilePhone myPhone = new MobilePhone();
-        myPhone.addContact("Mauricio", "8181852368");
-        myPhone.addContact("Rodolfo", "8181852365");
-        myPhone.getContactList();
+    public static MobilePhone myPhone = new MobilePhone();
 
-        System.out.println(myPhone.findContact("Mauricio"));
+    public static void main(String[] args) {
 
         initializePhone();
 
@@ -22,40 +18,52 @@ public class Main {
         printMenu();
         System.out.println("Choose an option: ");
 
-        switch(scanner.nextInt()) {
-            case 0:
-                printMenu();
-                break;
+        boolean flag = true;
 
-            case 1:
-                System.out.println("Add contact");
-                break;
+        while(flag) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 0:
+                    printMenu();
+                    break;
 
-            case 2:
-                System.out.println("Print contact list");
-                break;
+                case 1:
+                    System.out.println("Enter name, press enter and then the phone number: ");
+                    myPhone.addContact(scanner.nextLine(), scanner.nextLine());
+                    break;
 
-            case 3:
-                System.out.println("Update contact");
-                break;
+                case 2:
+                    System.out.println("Contacts: ");
+                    myPhone.getContactList();
+                    break;
 
-            case 4:
-                System.out.println("Remove contact");
-                break;
+                case 3:
+                    System.out.println("Enter contact name: ");
+                    myPhone.updateContact(scanner.nextLine());
+                    break;
 
-            case 5:
-                System.out.println("Search contact");
-                break;
+                case 4:
+                    System.out.println("Remove contact: ");
+                    myPhone.removeContact(scanner.nextLine());
+                    break;
 
-            case 9:
-                System.out.println("Exit");
-                break;
+                case 5:
+                    System.out.println("Contact name: ");
+                    myPhone.findContact(scanner.nextLine());
+                    break;
 
-            default:
-                System.out.println("Wrong option");
+                case 9:
+                    System.out.println("Exiting phone..");
+                    flag = false;
+                    break;
 
+                default:
+                    System.out.println("Wrong option");
 
+            }
         }
+
     }
 
     public static void printMenu() {

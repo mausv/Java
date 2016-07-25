@@ -8,9 +8,9 @@ public class Main {
 
         double sum = (firstValue + secondValue) * 25;
 
-        double remainder = sum % 2300d;
+        double remainder = sum % 40d;
 
-        if (remainder <= 200d)
+        if (remainder <= 20d)
             System.out.println("Total was over the limit");
 
     }

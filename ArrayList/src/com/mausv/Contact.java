@@ -1,30 +1,26 @@
 package com.mausv;
 
 /**
- * Created by Mauricio on 10/16/2015.
+ * Created by mausv on 7/27/2016.
  */
 public class Contact {
     private String name;
-    private String phone;
+    private String phoneNumber;
 
-    public Contact(String name, String phone) {
+    public Contact(String name, String phoneNumber) {
         this.name = name;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public static Contact createContact(String name, String phoneNumber) {
+        return new Contact(name, phoneNumber);
     }
 }

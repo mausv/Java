@@ -1,6 +1,5 @@
 package com.mausv;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,45 +7,34 @@ public class Main {
     private static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[] myIntArray = new int[5];
-
-        myIntArray = getValues(myIntArray);
-
-        myIntArray = sortArray(myIntArray);
-
-        printArray(myIntArray);
-
+        int[] arr;
+        arr = getIntegers();
+        arr = sortIntegers(arr);
+        printArray(arr);
     }
 
-    public static int[] getValues(int[] array) {
-        int[] valueArray = new int[array.length];
+    private static int[] getIntegers() {
+        int[] integersArray = new int[5];
 
-        System.out.println("Enter 5 values: ");
-
-        for(int i = 0; i < array.length; i++) {
-            valueArray[i] = scan.nextInt();
+        for(int i = 0; i < integersArray.length; i++) {
+            integersArray[i] = scan.nextInt();
         }
 
-        return valueArray;
+        return integersArray;
     }
 
-    public static int[] sortArray(int[] array) {
-        /*int[] sortedArray = new int[array.length];
+    private static int[] sortIntegers(int[] array){
 
-        for(int i = 0; i < array.length; i++){
-            sortedArray[i] = array[i];
-        }*/
-
-        int[] sortedArray = Arrays.copyOf(array, array.length);
+        int[] sortedArray = array.clone();
         boolean flag = true;
-        int temp;
+
         while(flag) {
             flag = false;
-            for(int i = 0; i < sortedArray.length-1; i++) {
-                if(sortedArray[i] < sortedArray[i+1]) {
-                    temp = sortedArray[i];
-                    sortedArray[i] = sortedArray[i+1];
-                    sortedArray[i+1] = temp;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i + 1]) {
+                    int tempInteger = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = tempInteger;
                     flag = true;
                 }
             }
@@ -55,7 +43,7 @@ public class Main {
         return sortedArray;
     }
 
-    public static void printArray(int[] array) {
+    private static void printArray(int[] array) {
         for(int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }

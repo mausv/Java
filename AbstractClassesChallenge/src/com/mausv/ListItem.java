@@ -1,37 +1,22 @@
 package com.mausv;
 
 /**
- * Created by mausv on 8/26/2016.
+ * Created by mausv on 9/4/2016.
  */
 public abstract class ListItem {
-    protected ListItem rightLink = null;
-    protected ListItem leftLink = null;
+    protected ListItem previousItem = null;
+    protected ListItem nextItem = null;
     protected Object value = null;
 
     public ListItem(Object value) {
         this.value = value;
     }
 
-    public ListItem getRightLink() {
-        return rightLink;
-    }
-
-    public abstract ListItem right();
-    public abstract ListItem moveRight();
-    public abstract ListItem left();
-    public abstract ListItem moveLeft();
-
-    public void setRightLink(ListItem rightLink) {
-        this.rightLink = rightLink;
-    }
-
-    public ListItem getLeftLink() {
-        return leftLink;
-    }
-
-    public void setLeftLink(ListItem leftLink) {
-        this.leftLink = leftLink;
-    }
+    public abstract int compareTo(ListItem item);
+    public abstract ListItem previous();
+    public abstract ListItem setPreviousItem(ListItem item);
+    public abstract ListItem next();
+    public abstract ListItem setNextItem(ListItem item);
 
     public Object getValue() {
         return value;

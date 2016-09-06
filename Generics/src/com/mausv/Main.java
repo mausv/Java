@@ -55,8 +55,8 @@ public class Main {
         System.out.println(hawthorn.compareTo(adelaideCrows));
         System.out.println(melbourne.compareTo(fremantle));
 
-//        ArrayList<Team> teams;
-//        Collections.sort(teams);
+        ArrayList<Team> teams;
+        Collections.sort(teams);
     }
 
     private static void printDoubled(ArrayList<Integer> n) {
